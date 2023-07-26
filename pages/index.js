@@ -16,17 +16,17 @@ export default function Home({ serverTime }) {
         <Header />
       </header>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+        className={`flex min-h-screen flex-col items-center p-6 ${inter.className}`}
       >
-        <div className="text-2xl flex items-center justify-center ">
-          <div class="bg-white p-8 rounded shadow">
-            <h1 class="text-4xl font-bold text-center">
+        <div className="text-2xl flex items-center justify-center">
+          <div className="bg-white p-8 rounded shadow">
+            <h1 className="text-4xl font-bold text-center">
               Current Date and Time
             </h1>
-            <p class="text-center mt-4">{currentDate}</p>
+            <p className="text-center mt-4">{currentDate}</p>
           </div>
         </div>
-        <div className="flex gap-20 justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-20">
           <div>
             <Stopwatch serverTime={serverTime} />
           </div>
@@ -38,10 +38,29 @@ export default function Home({ serverTime }) {
       <footer className="relative inset-x-0 bottom-0 mt-10 w-full">
         <Footer />
       </footer>
+
+      <style jsx>{`
+        @media screen and (max-width: 768px) {
+          /* Adjust styles for screens smaller than 768px (e.g., mobile devices) */
+          .p-6 {
+            padding: 1rem;
+          }
+
+          .text-2xl {
+            font-size: 1.5rem;
+          }
+
+          .text-4xl {
+            font-size: 2rem;
+          }
+
+          .gap-6 {
+            gap: 1rem;
+          }
+
+          /* Add any other responsive styles as needed */
+        }
+      `}</style>
     </>
   );
-}
-export async function getServerSideProps() {
-  const serverTime = new Date().toISOString();
-  return { props: { serverTime } };
 }
