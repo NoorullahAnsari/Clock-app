@@ -18,7 +18,7 @@ export default function Home({ serverTime }) {
       <main
         className={`flex min-h-screen flex-col items-center p-6 ${inter.className}`}
       >
-        <div className="text-2xl flex items-center justify-center">
+        <div className="text-2xl flex mt-10 items-center justify-center">
           <div className="bg-white p-8 rounded shadow">
             <h1 className="text-4xl font-bold text-center">
               Current Date and Time
